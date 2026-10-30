@@ -76,11 +76,14 @@ video.player { width: 100%; display: block; border-radius: 12px; background: #00
 .stills img { width: 100%; display: block; transition: transform .3s; }
 .stills button:hover img { transform: scale(1.05); }
 
-.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; counter-reset: s; }
-.step { border-top: 2px solid var(--accent); padding-top: 16px; }
-.step::before { counter-increment: s; content: "0" counter(s); font-family: var(--display); color: var(--accent); font-size: 14px; }
-.step h3 { font-size: 18px; margin-top: 8px; }
-.step p { margin: 0; color: var(--muted); }
+.prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; align-items: stretch; }
+.price { background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 14px; padding: 26px 24px; display: flex; flex-direction: column; }
+.price h3 { font-size: 20px; margin: 0; }
+.price .what { color: var(--muted); margin: 6px 0 14px; font-size: 15px; }
+.price .sum { font-family: var(--display); font-size: 30px; color: var(--accent); margin: 0 0 18px; font-variant-numeric: tabular-nums; }
+.price ol { margin: 0; padding: 18px 0 0 20px; border-top: 1px solid var(--line); display: grid; gap: 10px; font-size: 15px; color: var(--muted); }
+.price ol b { color: var(--text); font-weight: 700; }
+.note { color: var(--muted); margin: 20px 0 0; }
 
 .contact { text-align: left; }
 .contact p { max-width: 52ch; color: var(--muted); margin: 0 0 24px; }
@@ -113,7 +116,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
     <p class="lead">Снимаю ролики, после которых хочется прийти: в кафе, на базу отдыха, на приём к врачу. Вертикаль для соцсетей и горизонталь для сайта с одной съёмки.</p>
     <div class="cta">
       <a class="btn main" href="#works">Смотреть работы</a>
-      <a class="btn ghost" href="#contact">Обсудить ролик</a>
+      <a class="btn ghost" href="#prices">Цены</a>
     </div>
   </div>
 </header>
@@ -198,16 +201,51 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
     </div>
   </section>
 
-  <section id="process">
+  <section id="prices">
     <div class="wrap">
-      <p class="kicker">Как работаем</p>
-      <h2>От идеи до готового ролика</h2>
-      <div class="steps">
-        <div class="step"><h3>Идеи под вас</h3><p>Разбираюсь в вашем бизнесе и предлагаю 2–3 идеи роликов.</p></div>
-        <div class="step"><h3>План съёмки</h3><p>Раскадровка: какие кадры, где и во сколько. Вы видите результат ещё до съёмки.</p></div>
-        <div class="step"><h3>Съёмка</h3><p>Приезжаю со своей техникой и светом и стараюсь не мешать работе заведения.</p></div>
-        <div class="step"><h3>Монтаж и правки</h3><p>Монтаж, цвет, музыка. Отдаю вертикаль и горизонталь, вношу ваши правки.</p></div>
+      <p class="kicker">Цены</p>
+      <h2>Сколько стоит и как проходит работа</h2>
+      <div class="prices">
+        <div class="price">
+          <h3>Стартовый пакет</h3>
+          <p class="what">4 вертикальных ролика под ключ для Reels, VK Клипов и сторис</p>
+          <p class="sum">15 000 ₽</p>
+          <ol>
+            <li><b>Знакомство.</b> Короткий созвон или встреча: чем живёт бизнес, кто ваши клиенты, что хотите показать.</li>
+            <li><b>Идеи и сценарии.</b> Предлагаю 4 идеи роликов, согласуем.</li>
+            <li><b>План съёмки.</b> Раскадровка: какие кадры, где и во сколько. Вы видите ролики ещё до съёмки.</li>
+            <li><b>Съёмка.</b> Один выезд на все 4 ролика, своя техника и свет.</li>
+            <li><b>Монтаж.</b> Монтаж, цвет, музыка, звук.</li>
+            <li><b>Правки и сдача.</b> Вношу правки, отдаю готовые файлы под соцсети.</li>
+          </ol>
+        </div>
+        <div class="price">
+          <h3>Горизонтальное видео</h3>
+          <p class="what">Подкасты, интервью, видеообзоры, экспертные выпуски для YouTube и сайта</p>
+          <p class="sum">от 5 000 ₽</p>
+          <ol>
+            <li><b>Формат.</b> Обсуждаем, что снимаем, сколько человек в кадре, длительность и площадку.</li>
+            <li><b>Подготовка.</b> Продумываю кадр, свет и звук под вашу локацию.</li>
+            <li><b>Свет и звук на месте.</b> Выставляю свет, ставлю петличные микрофоны, проверяю картинку.</li>
+            <li><b>Съёмка.</b> Слежу за кадром, светом и звуком, чтобы вы думали только о разговоре.</li>
+            <li><b>Сдача.</b> Отдаю исходники. Монтаж — по договорённости.</li>
+          </ol>
+        </div>
+        <div class="price">
+          <h3>Рекламный ролик</h3>
+          <p class="what">Ролик о продукте, заведении или услуге для рекламы, сайта и соцсетей</p>
+          <p class="sum">от 10 000 ₽</p>
+          <ol>
+            <li><b>Бриф.</b> Задача ролика, продукт, аудитория, где будет показ.</li>
+            <li><b>Идея и сценарий.</b> Предлагаю идею, пишу сценарий, согласуем.</li>
+            <li><b>Раскадровка и подготовка.</b> План кадров, локация, реквизит, люди в кадре.</li>
+            <li><b>Съёмка.</b> Камера, свет, при необходимости дрон.</li>
+            <li><b>Постпродакшн.</b> Монтаж, цвет, звук, музыка, графика.</li>
+            <li><b>Правки и сдача.</b> Вношу правки, отдаю версии под нужные площадки.</li>
+          </ol>
+        </div>
       </div>
+      <p class="note">Точная стоимость зависит от задачи. Напишите, что нужно, и я посчитаю.</p>
     </div>
   </section>
 
