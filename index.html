@@ -91,6 +91,8 @@ video.player { width: 100%; display: block; border-radius: 12px; background: #00
 .stills { display: grid; gap: 8px; }
 .stills.h { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
 .stills.v { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+.trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 760px; }
+@media (max-width: 520px) { .trio { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; } }
 .stills.p { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 .stills button { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 8px; overflow: hidden; }
 .stills img { width: 100%; display: block; transition: transform .3s; }
@@ -235,8 +237,22 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
       </details>
 
       <details class="cat" id="travel">
-        <summary><span class="cat-name">Туризм и отдых</span><span class="cat-desc">Базы отдыха, глэмпинги, места</span><span class="cat-count">1 проект</span></summary>
+        <summary><span class="cat-name">Туризм и отдых</span><span class="cat-desc">Базы отдыха, глэмпинги, места</span><span class="cat-count">2 проекта</span></summary>
         <div class="cat-body">
+          <article class="work">
+            <div class="work-head">
+              <span class="tag">Туризм · Reels</span>
+              <h3>Fat Bus, туры по России и миру</h3>
+              <p>Три ролика для Instagram-аккаунта турсообщества Fat Bus (100 тыс. подписчиков): приглашение в поездку, зимняя дорога в Териберку, Териберка зимой. Опубликованы у них в профиле.</p>
+              <span class="credit"><b>Съёмка для аккаунта</b> · <a href="https://instagram.com/fat_bus">instagram.com/fat_bus</a></span>
+            </div>
+            <div class="trio">
+              <video class="player" src="media/fatbus_1.mp4" poster="media/fatbus_1.jpg" controls playsinline preload="none"></video>
+              <video class="player" src="media/fatbus_2.mp4" poster="media/fatbus_2.jpg" controls playsinline preload="none"></video>
+              <video class="player" src="media/fatbus_3.mp4" poster="media/fatbus_3.jpg" controls playsinline preload="none"></video>
+            </div>
+          </article>
+
       <article class="work">
         <div class="work-head">
           <span class="tag">Туризм и отдых</span>
