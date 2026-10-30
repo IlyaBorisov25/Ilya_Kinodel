@@ -3,176 +3,229 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Илья Кинодел — видео</title>
+<title>Илья Борисов — видеограф</title>
+<meta name="description" content="Илья Борисов, видеограф в Тольятти. Ролики для общепита, туризма, медицины и экспертные интервью.">
+<meta property="og:title" content="Илья Борисов — видеограф">
+<meta property="og:description" content="Ролики для бизнеса в Тольятти: общепит, туризм, интервью.">
+<meta property="og:image" content="media/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* Тёмный «кинозал»: работы на первом месте, текст тихий. Одна колонка, ниши — главы. */
-  --bg: #121214;
-  --panel: #1b1b1f;
-  --line: #2c2c32;
-  --text: #ecebe6;
-  --muted: #9a9890;
-  --accent: #e8a24a; /* тёплый свет лампы накаливания */
+  /* Кинозал: тёмный фон, тёплый свет. Работы — главное, текст коротко. */
+  --bg: #111113;
+  --panel: #1a1a1e;
+  --line: #2a2a30;
+  --text: #efede7;
+  --muted: #9b998f;
+  --accent: #e8a24a;
   --display: "Unbounded", "Arial Black", sans-serif;
   --body: "Manrope", "Segoe UI", Arial, sans-serif;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 html, body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.55; }
 a { color: var(--accent); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
 
-header { padding: 48px 0 32px; border-bottom: 1px solid var(--line); }
-.name { font-family: var(--display); font-weight: 700; font-size: clamp(30px, 6vw, 54px); line-height: 1.05; margin: 0; text-wrap: balance; }
-.lead { color: var(--muted); max-width: 60ch; margin: 14px 0 0; }
-.meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 20px; font-size: 15px; }
-.meta span { color: var(--muted); }
+/* Hero */
+.hero { position: relative; min-height: 560px; display: flex; align-items: flex-end; overflow: hidden; }
+.hero video, .hero .shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero video { object-fit: cover; }
+.hero .shade { background: linear-gradient(180deg, rgba(17,17,19,.35) 0%, rgba(17,17,19,.55) 55%, var(--bg) 100%); }
+.hero .wrap { position: relative; width: 100%; padding-top: 120px; padding-bottom: 48px; }
+.role { font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px; }
+h1 { font-family: var(--display); font-weight: 600; font-size: clamp(36px, 7vw, 76px); line-height: 1; margin: 0; text-wrap: balance; }
+.lead { max-width: 52ch; margin: 18px 0 28px; font-size: 19px; color: #dcd9d0; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-block; text-decoration: none; padding: 12px 22px; border-radius: 999px; font-weight: 700; font-size: 16px; }
+.btn.main { background: var(--accent); color: #1a1206; }
+.btn.ghost { border: 1px solid rgba(239,237,231,.4); color: var(--text); }
+.btn:hover { filter: brightness(1.08); }
 
-nav { display: flex; flex-wrap: wrap; gap: 8px; padding: 20px 0; }
-nav a { text-decoration: none; color: var(--text); border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px; font-size: 15px; }
-nav a:hover { border-color: var(--accent); color: var(--accent); }
+/* Sections */
+section { padding: 72px 0; border-top: 1px solid var(--line); }
+.kicker { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px; }
+h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 40px); line-height: 1.15; margin: 0 0 28px; text-wrap: balance; }
+h3 { font-family: var(--display); font-weight: 400; font-size: 22px; margin: 0 0 8px; }
+.muted { color: var(--muted); }
 
-section { padding: 40px 0 48px; border-bottom: 1px solid var(--line); }
-.niche { font-family: var(--body); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
-h2 { font-family: var(--display); font-weight: 500; font-size: clamp(22px, 3.4vw, 32px); margin: 0 0 6px; text-wrap: balance; }
-.about { color: var(--muted); max-width: 62ch; margin: 0 0 24px; }
+.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
+.card h3 { font-size: 18px; }
+.card p { margin: 0; color: var(--muted); }
 
-.work { display: grid; gap: 20px; align-items: start; }
-.work.h { grid-template-columns: 1fr; }
-.work.v { grid-template-columns: minmax(0, 360px) 1fr; }
-video { width: 100%; display: block; border-radius: 10px; background: #000; }
-.facts { display: grid; gap: 10px; align-content: start; font-size: 15px; }
-.facts div { border-left: 2px solid var(--accent); padding-left: 12px; }
-.facts b { display: block; font-weight: 700; }
-.facts span { color: var(--muted); }
+/* Works */
+.work { display: grid; gap: 28px; padding: 40px 0; border-bottom: 1px solid var(--line); }
+.work:last-child { border-bottom: 0; }
+.work-head { display: grid; gap: 4px; }
+.tag { font-size: 13px; color: var(--accent); letter-spacing: .08em; text-transform: uppercase; }
+.work-head p { margin: 4px 0 0; max-width: 64ch; color: var(--muted); }
+.credit { font-size: 15px; color: var(--muted); }
+.credit b { color: var(--text); font-weight: 500; }
+.media { display: grid; gap: 16px; }
+.media.v { grid-template-columns: minmax(0, 340px) 1fr; align-items: start; }
+video.player { width: 100%; display: block; border-radius: 12px; background: #000; }
+.stills { display: grid; gap: 8px; }
+.stills.h { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+.stills.v { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+.stills button { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 8px; overflow: hidden; }
+.stills img { width: 100%; display: block; transition: transform .3s; }
+.stills button:hover img { transform: scale(1.05); }
 
-.stills { display: grid; gap: 8px; margin-top: 20px; }
-.stills.h { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
-.stills.v { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
-.stills button { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 6px; overflow: hidden; }
-.stills img { width: 100%; display: block; transition: transform .25s; }
-.stills button:hover img { transform: scale(1.04); }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; counter-reset: s; }
+.step { border-top: 2px solid var(--accent); padding-top: 16px; }
+.step::before { counter-increment: s; content: "0" counter(s); font-family: var(--display); color: var(--accent); font-size: 14px; }
+.step h3 { font-size: 18px; margin-top: 8px; }
+.step p { margin: 0; color: var(--muted); }
 
-.soon { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
-.soon div { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
-.soon b { display: block; }
-.soon span { color: var(--muted); font-size: 15px; }
-
-footer { padding: 40px 0 60px; }
-footer h2 { margin-bottom: 10px; }
+.contact { text-align: left; }
+.contact p { max-width: 52ch; color: var(--muted); margin: 0 0 24px; }
+footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
 
 #box { position: fixed; inset: 0; background: rgba(0,0,0,.92); display: none; align-items: center; justify-content: center; padding: 16px; z-index: 10; cursor: zoom-out; }
 #box.on { display: flex; }
 #box img { max-width: 100%; max-height: 100%; border-radius: 6px; }
 
-@media (max-width: 640px) {
-  .work.v { grid-template-columns: 1fr; }
-  .work.v video { max-width: 360px; margin: 0 auto; }
+@media (max-width: 680px) {
+  .hero { min-height: 480px; }
+  .media.v { grid-template-columns: 1fr; }
+  .media.v video { max-width: 340px; margin: 0 auto; }
+  section { padding: 56px 0; }
 }
-@media (prefers-reduced-motion: reduce) { .stills img { transition: none; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .stills img { transition: none; }
+}
 </style>
 </head>
 <body>
-<header>
+
+<header class="hero">
+  <video src="media/hero.mp4" poster="media/hero.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="shade"></div>
   <div class="wrap">
-    <h1 class="name">Илья Кинодел</h1>
-    <p class="lead">Снимаю ролики для бизнеса в Тольятти: еда, места, люди, интервью. Вертикаль для Reels и горизонталь для сайта из одной съёмки.</p>
-    <div class="meta">
-      <a href="https://instagram.com/ilya_kinodel">instagram.com/ilya_kinodel</a>
-      <span>Тольятти</span>
+    <p class="role">Видеограф · Тольятти</p>
+    <h1>Илья Борисов</h1>
+    <p class="lead">Снимаю ролики, после которых хочется прийти: в кафе, на базу отдыха, на приём к врачу. Вертикаль для соцсетей и горизонталь для сайта с одной съёмки.</p>
+    <div class="cta">
+      <a class="btn main" href="#works">Смотреть работы</a>
+      <a class="btn ghost" href="#contact">Обсудить ролик</a>
     </div>
   </div>
 </header>
 
-<div class="wrap">
-  <nav aria-label="Ниши">
-    <a href="#food">Общепит</a>
-    <a href="#travel">Туризм и отдых</a>
-    <a href="#interview">Интервью и медицина</a>
-    <a href="#next">Скоро</a>
-  </nav>
-
-  <section id="food">
-    <p class="niche">Общепит</p>
-    <h2>Ит Лаб, бургерная</h2>
-    <p class="about">Ролик о том, как готовят бургер: от раскалённой плиты до выдачи. Монтаж в ритм трека, в финале вывеска превращается в виниловую пластинку. Опубликован совместно с заведением.</p>
-    <div class="work h">
-      <video src="media/itlab.mp4" poster="media/it_05.jpg" controls playsinline preload="metadata"></video>
-    </div>
-    <div class="stills h">
-      <button type="button"><img src="media/it_01.jpg" alt="Бургер в коробке, вид сверху"></button>
-      <button type="button"><img src="media/it_02.jpg" alt="Котлета на плите, дым"></button>
-      <button type="button"><img src="media/it_04.jpg" alt="Сыр плавится на котлетах"></button>
-      <button type="button"><img src="media/it_05.jpg" alt="Сборка чизбургера"></button>
-      <button type="button"><img src="media/it_06.jpg" alt="Готовый бургер на бумаге"></button>
-      <button type="button"><img src="media/it_03.jpg" alt="Повар у плиты"></button>
-      <button type="button"><img src="media/it_08.jpg" alt="Заказ на стойке выдачи"></button>
-      <button type="button"><img src="media/it_10.jpg" alt="Логотип eat·lab на пластинке"></button>
-    </div>
-  </section>
-
-  <section id="travel">
-    <p class="niche">Туризм и отдых</p>
-    <h2>База отдыха «Дружба»</h2>
-    <p class="about">Майский день на базе: въезд, аллея вдоль озера, домики в лесу, рыбалка, качели. Дрон и камера, вертикаль 9:16.</p>
-    <div class="work v">
-      <video src="media/druzhba.mp4" poster="media/dr_02.jpg" controls playsinline preload="metadata"></video>
-      <div class="facts">
-        <div><b>Формат</b><span>Вертикальный ролик, 25 секунд</span></div>
-        <div><b>Съёмка</b><span>Камера + дрон, один день</span></div>
-        <div><b>Для чего</b><span>Reels, сторис, реклама в соцсетях</span></div>
+<main>
+  <section id="services">
+    <div class="wrap">
+      <p class="kicker">Что снимаю</p>
+      <h2>Видео, которое работает на бизнес</h2>
+      <div class="services">
+        <div class="card"><h3>Ролики для соцсетей</h3><p>Короткие вертикальные видео для Reels, VK Клипов и сторис. Можно пакетом на месяц, чтобы аккаунт жил регулярно.</p></div>
+        <div class="card"><h3>Имиджевый ролик</h3><p>Атмосфера места, продукт, люди. Для сайта, рекламы и закрепа в профиле.</p></div>
+        <div class="card"><h3>Интервью и экспертный контент</h3><p>Свет, звук и картинка для врачей, специалистов и руководителей. Для YouTube и соцсетей.</p></div>
       </div>
     </div>
-    <div class="stills v">
-      <button type="button"><img src="media/dr_01.jpg" alt="Ворота базы с вывеской"></button>
-      <button type="button"><img src="media/dr_02.jpg" alt="Озеро сквозь деревья"></button>
-      <button type="button"><img src="media/dr_03.jpg" alt="Аллея вдоль озера"></button>
-      <button type="button"><img src="media/dr_04.jpg" alt="Деревянный домик в лесу"></button>
-      <button type="button"><img src="media/dr_05.jpg" alt="Гостья на крыльце домика"></button>
-      <button type="button"><img src="media/dr_06.jpg" alt="Рыбак на берегу"></button>
-      <button type="button"><img src="media/dr_07.jpg" alt="Домики на берегу, вид с дрона"></button>
-      <button type="button"><img src="media/dr_08.jpg" alt="Ребёнок на качелях у озера"></button>
-      <button type="button"><img src="media/dr_09.jpg" alt="Сирень и бокал"></button>
+  </section>
+
+  <section id="works">
+    <div class="wrap">
+      <p class="kicker">Работы</p>
+      <h2>Недавние проекты</h2>
+
+      <article class="work">
+        <div class="work-head">
+          <span class="tag">Общепит</span>
+          <h3>Ит Лаб, бургерная</h3>
+          <p>Как рождается бургер: раскалённая плита, сыр, сборка, выдача. Монтаж в ритм трека, в финале вывеска превращается в виниловую пластинку. Ролик опубликован вместе с заведением.</p>
+          <span class="credit"><b>Сценарий, съёмка, монтаж, цвет</b></span>
+        </div>
+        <div class="media">
+          <video class="player" src="media/itlab.mp4" poster="media/it_05.jpg" controls playsinline preload="none"></video>
+          <div class="stills h">
+            <button type="button"><img src="media/it_02.jpg" alt="Котлета на плите, дым" loading="lazy"></button>
+            <button type="button"><img src="media/it_04.jpg" alt="Сыр плавится на котлетах" loading="lazy"></button>
+            <button type="button"><img src="media/it_06.jpg" alt="Готовый бургер на бумаге" loading="lazy"></button>
+            <button type="button"><img src="media/it_08.jpg" alt="Заказ на стойке выдачи" loading="lazy"></button>
+            <button type="button"><img src="media/it_10.jpg" alt="Логотип eat·lab на пластинке" loading="lazy"></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="work-head">
+          <span class="tag">Интервью · Медицина</span>
+          <h3>«Деменция нет», YouTube-проект</h3>
+          <p>Серия из восьми выпусков с врачами и психологами, 4K. Две схемы света: светлая комната и тёмный интерьер с деревом.</p>
+          <span class="credit"><b>Оператор и свет.</b> Продакшн и монтаж — студия Кирилла (Москва). <a href="https://youtu.be/eRKPbYpX9zU">Выпуск целиком</a></span>
+        </div>
+        <div class="media">
+          <video class="player" src="media/dementia.mp4" poster="media/dem_05.jpg" controls playsinline preload="none"></video>
+          <div class="stills h">
+            <button type="button"><img src="media/dem_01.jpg" alt="Светлая схема, общий план" loading="lazy"></button>
+            <button type="button"><img src="media/dem_02.jpg" alt="Светлая схема, крупный план" loading="lazy"></button>
+            <button type="button"><img src="media/dem_04.jpg" alt="Тёмная схема, общий план" loading="lazy"></button>
+            <button type="button"><img src="media/dem_05.jpg" alt="Тёмная схема, крупный план" loading="lazy"></button>
+            <button type="button"><img src="media/dem_06.jpg" alt="Тёмная схема, средний план" loading="lazy"></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="work-head">
+          <span class="tag">Туризм и отдых</span>
+          <h3>База отдыха «Дружба»</h3>
+          <p>Майский день на базе: въезд, аллея вдоль озера, домики в лесу, рыбалка, качели. Камера и дрон, вертикаль для соцсетей.</p>
+          <span class="credit"><b>Съёмка, дрон, монтаж, цвет</b></span>
+        </div>
+        <div class="media v">
+          <video class="player" src="media/druzhba.mp4" poster="media/dr_02.jpg" controls playsinline preload="none"></video>
+          <div class="stills v">
+            <button type="button"><img src="media/dr_01.jpg" alt="Ворота базы с вывеской" loading="lazy"></button>
+            <button type="button"><img src="media/dr_03.jpg" alt="Аллея вдоль озера" loading="lazy"></button>
+            <button type="button"><img src="media/dr_04.jpg" alt="Деревянный домик в лесу" loading="lazy"></button>
+            <button type="button"><img src="media/dr_05.jpg" alt="Гостья на крыльце домика" loading="lazy"></button>
+            <button type="button"><img src="media/dr_06.jpg" alt="Рыбак на берегу" loading="lazy"></button>
+            <button type="button"><img src="media/dr_07.jpg" alt="Домики на берегу, вид с дрона" loading="lazy"></button>
+            <button type="button"><img src="media/dr_08.jpg" alt="Ребёнок на качелях у озера" loading="lazy"></button>
+            <button type="button"><img src="media/dr_09.jpg" alt="Сирень и бокал" loading="lazy"></button>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
-  <section id="interview">
-    <p class="niche">Интервью · Медицина</p>
-    <h2>«Деменция нет», YouTube-проект</h2>
-    <p class="about">Серия из восьми выпусков с врачами и психологами о деменции, 4K. Работал оператором и ставил свет: две схемы, светлая комната и тёмный интерьер с деревом. Продакшн — студия Кирилла (Москва), монтаж их.</p>
-    <div class="work h">
-      <video src="media/dementia.mp4" poster="media/dem_05.jpg" controls playsinline preload="metadata"></video>
-    </div>
-    <div class="stills h">
-      <button type="button"><img src="media/dem_01.jpg" alt="Интервью, светлая схема, общий план"></button>
-      <button type="button"><img src="media/dem_02.jpg" alt="Интервью, светлая схема, крупный план"></button>
-      <button type="button"><img src="media/dem_03.jpg" alt="Интервью, светлая схема, средний план"></button>
-      <button type="button"><img src="media/dem_04.jpg" alt="Интервью, тёмная схема, общий план"></button>
-      <button type="button"><img src="media/dem_05.jpg" alt="Интервью, тёмная схема, крупный план"></button>
-      <button type="button"><img src="media/dem_06.jpg" alt="Интервью, тёмная схема, средний план"></button>
-    </div>
-    <p class="about" style="margin-top:16px">Выпуск целиком: <a href="https://youtu.be/eRKPbYpX9zU">youtu.be/eRKPbYpX9zU</a></p>
-  </section>
-
-  <section id="next">
-    <p class="niche">В работе</p>
-    <h2>Скоро здесь</h2>
-    <div class="soon">
-      <div><b>Паб «Буза»</b><span>Общепит: вечер, люди, атмосфера</span></div>
-      <div><b>Volkswagen Golf IV</b><span>Авто: машина на продажу</span></div>
+  <section id="process">
+    <div class="wrap">
+      <p class="kicker">Как работаем</p>
+      <h2>От идеи до готового ролика</h2>
+      <div class="steps">
+        <div class="step"><h3>Идеи под вас</h3><p>Разбираюсь в вашем бизнесе и предлагаю 2–3 идеи роликов.</p></div>
+        <div class="step"><h3>План съёмки</h3><p>Раскадровка: какие кадры, где и во сколько. Вы видите результат ещё до съёмки.</p></div>
+        <div class="step"><h3>Съёмка</h3><p>Приезжаю со своей техникой и светом и стараюсь не мешать работе заведения.</p></div>
+        <div class="step"><h3>Монтаж и правки</h3><p>Монтаж, цвет, музыка. Отдаю вертикаль и горизонталь, вношу ваши правки.</p></div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <h2>Обсудить ролик</h2>
-    <p class="about">Напишите в директ, предложу 2–3 идеи под ваш бизнес.</p>
-    <a href="https://instagram.com/ilya_kinodel">instagram.com/ilya_kinodel</a>
-  </footer>
-</div>
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="kicker">Связаться</p>
+      <h2>Обсудим ваш ролик</h2>
+      <p>Напишите, чем занимаетесь, и я пришлю 2–3 идеи под ваш бизнес. Это ни к чему не обязывает.</p>
+      <div class="cta">
+        <a class="btn main" href="https://instagram.com/ilya_kinodel">Написать в Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Илья Борисов · видеограф · Тольятти</div>
+</footer>
 
 <div id="box" role="dialog" aria-label="Кадр"><img alt=""></div>
 <script>
@@ -182,6 +235,10 @@ document.querySelectorAll('.stills button').forEach(b => b.addEventListener('cli
 }));
 box.addEventListener('click', () => box.classList.remove('on'));
 document.addEventListener('keydown', e => { if (e.key === 'Escape') box.classList.remove('on'); });
+// Остальные видео ставим на паузу, когда запускают одно
+const players = document.querySelectorAll('video.player');
+players.forEach(v => v.addEventListener('play', () => players.forEach(o => { if (o !== v) o.pause(); })));
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelector('.hero video').pause();
 </script>
 </body>
 </html>
