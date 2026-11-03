@@ -61,6 +61,21 @@ a.tile:hover { border-color: var(--accent); transform: translateY(-2px); }
 footer { padding-bottom: 96px !important; }
 @media (max-width: 520px) { .float { left: 12px; right: 12px; bottom: 12px; } .f-tg { flex: 1; } }
 @media (prefers-reduced-motion: reduce) { a.tile { transition: none; } }
+.how { border-top: 1px solid var(--line); margin-top: auto; }
+.how summary { cursor: pointer; list-style: none; padding: 14px 0 4px; font-weight: 700; font-size: 15px; color: var(--accent); display: flex; align-items: center; gap: 8px; }
+.how summary::-webkit-details-marker { display: none; }
+.how summary::after { content: ""; width: 8px; height: 8px; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(45deg); margin-top: -4px; transition: transform .2s; }
+.how[open] summary::after { transform: rotate(-135deg); margin-top: 4px; }
+.price .how ol { border-top: 0; padding-top: 10px; }
+#box .close { position: absolute; top: 14px; right: 14px; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,.35); background: rgba(17,17,19,.7); color: #fff; font-size: 30px; line-height: 1; cursor: pointer; }
+#box .close:hover { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 520px) {
+  .hero .lead { display: none; }
+  .hero .utp { margin-bottom: 24px; }
+  .trio { display: flex; grid-template-columns: none; max-width: none; margin: 0 -16px; padding: 0 16px 8px; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; }
+  .trio video { flex: 0 0 72%; scroll-snap-align: start; }
+}
+@media (prefers-reduced-motion: reduce) { .how summary::after { transition: none; } }
 .formats { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; }
 .formats span { border: 1px solid rgba(232,162,74,.55); color: var(--text); background: rgba(17,17,19,.45); padding: 6px 14px; border-radius: 999px; font-size: 15px; font-weight: 500; }
 .lead { max-width: 52ch; margin: 18px 0 28px; font-size: 19px; color: #dcd9d0; }
@@ -118,7 +133,6 @@ video.player { width: 100%; display: block; border-radius: 12px; background: #00
 .stills.h { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
 .stills.v { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
 .trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 760px; }
-@media (max-width: 520px) { .trio { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; } }
 .stills.p { grid-template-columns: repeat(2, minmax(0, 220px)); }
 .stills button { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 8px; overflow: hidden; }
 .stills img { width: 100%; display: block; transition: transform .3s; }
@@ -326,64 +340,64 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
           <h3>Стартовый пакет</h3>
           <p class="what">4 вертикальных ролика под ключ для Reels, VK Клипов и сторис</p>
           <p class="sum">15 000 ₽</p>
-          <ol>
+          <details class="how"><summary>Как проходит работа</summary><ol>
             <li><b>Знакомство.</b> Короткий созвон или встреча: чем живёт бизнес, кто ваши клиенты, что хотите показать.</li>
             <li><b>Идеи и сценарии.</b> Предлагаю 4 идеи роликов, согласуем.</li>
             <li><b>План съёмки.</b> Раскадровка: какие кадры, где и во сколько. Бесплатно и до оплаты — вы видите ролики ещё до съёмки.</li>
             <li><b>Съёмка.</b> Один выезд на все 4 ролика, своя техника и свет.</li>
             <li><b>Монтаж.</b> Монтаж, цвет, музыка, звук.</li>
             <li><b>Правки и сдача.</b> Вношу правки, отдаю готовые файлы под соцсети.</li>
-          </ol>
+          </ol></details>
         </div>
         <div class="price">
           <h3>Пакет на месяц</h3>
           <p class="what">8 вертикальных роликов под ключ — по два в неделю, аккаунт живёт весь месяц</p>
           <p class="sum">25 000 ₽</p>
-          <ol>
+          <details class="how"><summary>Как проходит работа</summary><ol>
             <li><b>Знакомство.</b> Разбираемся в бизнесе, клиентах и том, что важно показать.</li>
             <li><b>Контент-план.</b> 8 идей роликов на месяц: продукт, люди, процесс, закулисье. Согласуем.</li>
             <li><b>План съёмки.</b> Раскадровка на все ролики — бесплатно и до оплаты.</li>
             <li><b>Съёмка.</b> Один или два выезда, как удобнее вам. Своя техника и свет.</li>
             <li><b>Монтаж.</b> Монтаж, цвет, музыка, звук.</li>
             <li><b>Правки и сдача.</b> Вношу правки, отдаю ролики с подсказкой, в каком порядке выкладывать.</li>
-          </ol>
+          </ol></details>
         </div>
         <div class="price">
           <h3>Горизонтальное видео</h3>
           <p class="what">Подкасты, интервью, видеообзоры, экспертные выпуски для YouTube и сайта</p>
           <p class="sum">от 5 000 ₽</p>
-          <ol>
+          <details class="how"><summary>Как проходит работа</summary><ol>
             <li><b>Формат.</b> Обсуждаем, что снимаем, сколько человек в кадре, длительность и площадку.</li>
             <li><b>Подготовка.</b> Продумываю кадр, свет и звук под вашу локацию.</li>
             <li><b>Свет и звук на месте.</b> Выставляю свет, ставлю петличные микрофоны, проверяю картинку.</li>
             <li><b>Съёмка.</b> Слежу за кадром, светом и звуком, чтобы вы думали только о разговоре.</li>
             <li><b>Сдача.</b> Отдаю исходники. Монтаж — по договорённости.</li>
-          </ol>
+          </ol></details>
         </div>
         <div class="price">
           <h3>Рекламный ролик</h3>
           <p class="what">Ролик о продукте, заведении или услуге для рекламы, сайта и соцсетей</p>
           <p class="sum">от 10 000 ₽</p>
-          <ol>
+          <details class="how"><summary>Как проходит работа</summary><ol>
             <li><b>Бриф.</b> Задача ролика, продукт, аудитория, где будет показ.</li>
             <li><b>Идея и сценарий.</b> Предлагаю идею, пишу сценарий, согласуем.</li>
             <li><b>Раскадровка и подготовка.</b> План кадров, локация, реквизит, люди в кадре.</li>
             <li><b>Съёмка.</b> Камера, свет, при необходимости дрон.</li>
             <li><b>Постпродакшн.</b> Монтаж, цвет, звук, музыка, графика.</li>
             <li><b>Правки и сдача.</b> Вношу правки, отдаю версии под нужные площадки.</li>
-          </ol>
+          </ol></details>
         </div>
         <div class="price">
           <h3>Прямая трансляция</h3>
           <p class="what">Конференции, презентации, открытия и праздники в прямом эфире</p>
           <p class="sum">от 15 000 ₽</p>
-          <ol>
+          <details class="how"><summary>Как проходит работа</summary><ol>
             <li><b>Формат.</b> Обсуждаем мероприятие, длительность и площадку эфира: VK, YouTube, Telegram или сайт.</li>
             <li><b>Проверка площадки.</b> Заранее смотрю интернет, свет и звук на месте, чтобы эфир не сорвался.</li>
             <li><b>Подготовка.</b> Ставлю камеры, свет и звук, проверяю картинку до начала.</li>
             <li><b>Эфир.</b> Веду трансляцию от начала до конца: картинка, звук, переключение планов.</li>
             <li><b>Запись.</b> После эфира отдаю запись. Короткий ролик-итог — по договорённости.</li>
-          </ol>
+          </ol></details>
         </div>
       </div>
       <ul class="terms">
@@ -421,7 +435,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
   <a href="tel:+79179429589" class="f-ph" aria-label="Позвонить"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
 </nav>
 
-<div id="box" role="dialog" aria-label="Кадр"><img alt=""></div>
+<div id="box" role="dialog" aria-label="Кадр"><button type="button" class="close" aria-label="Закрыть">&times;</button><img alt=""></div>
 <script>
 const box = document.getElementById('box'), big = box.querySelector('img');
 document.querySelectorAll('.stills button').forEach(b => b.addEventListener('click', () => {
