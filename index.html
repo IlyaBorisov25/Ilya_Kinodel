@@ -40,6 +40,27 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .role { font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px; }
 h1 { font-family: var(--display); font-weight: 600; font-size: clamp(38px, 7.5vw, 84px); line-height: 1.02; margin: 0; text-wrap: balance; }
 .role { font-size: 15px; }
+.utp { font-size: clamp(19px, 2.4vw, 24px); font-weight: 700; max-width: 40ch; margin: 22px 0 0; color: var(--text); border-left: 3px solid var(--accent); padding-left: 14px; }
+.trust { border-bottom: 1px solid var(--line); background: var(--panel); }
+.trust .wrap { display: flex; flex-wrap: wrap; gap: 10px 28px; padding-top: 16px; padding-bottom: 16px; font-size: 14px; color: var(--muted); }
+.trust span::before { content: "\2726"; color: var(--accent); margin-right: 8px; font-size: 11px; }
+a.tile { text-decoration: none; color: inherit; transition: border-color .2s, transform .2s; }
+a.tile:hover { border-color: var(--accent); transform: translateY(-2px); }
+.terms { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.terms li { border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 15px; color: var(--muted); }
+.terms b { color: var(--text); }
+.btn.ico { display: inline-flex; align-items: center; gap: 8px; }
+.btn.ico svg { width: 18px; height: 18px; }
+.insta { margin: 20px 0 0 !important; font-size: 15px; }
+.float { position: fixed; right: 16px; bottom: 16px; z-index: 9; display: flex; gap: 8px; }
+.float a { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; min-width: 52px; border-radius: 999px; text-decoration: none; font-weight: 700; box-shadow: 0 6px 20px rgba(0,0,0,.45); }
+.float svg { width: 22px; height: 22px; }
+.f-tg { background: #2aabee; color: #fff; padding: 0 18px; }
+.f-wa { background: #25d366; color: #fff; }
+.f-ph { background: var(--accent); color: #1a1206; }
+footer { padding-bottom: 96px !important; }
+@media (max-width: 520px) { .float { left: 12px; right: 12px; bottom: 12px; } .f-tg { flex: 1; } }
+@media (prefers-reduced-motion: reduce) { a.tile { transition: none; } }
 .formats { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; }
 .formats span { border: 1px solid rgba(232,162,74,.55); color: var(--text); background: rgba(17,17,19,.45); padding: 6px 14px; border-radius: 999px; font-size: 15px; font-weight: 500; }
 .lead { max-width: 52ch; margin: 18px 0 28px; font-size: 19px; color: #dcd9d0; }
@@ -142,7 +163,8 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
     <p class="role">Илья Борисов · видеограф · Самара и Тольятти</p>
     <h1>Видеосъёмка<br>для бизнеса</h1>
     <p class="formats"><span>Reels и клипы</span><span>Рекламные ролики</span><span>Интервью и подкасты</span></p>
-    <p class="lead">Снимаю видео, после которого к вам хотят прийти, купить или записаться. Неважно, что у вас: кафе, клиника, магазин, автосервис, студия или своё экспертное дело. Вертикальные и горизонтальные ролики с одной съёмки.</p>
+    <p class="utp">Покажу ваш ролик ещё до съёмки: раскадровка и идеи — бесплатно, а 4 ролика на месяц — за одну съёмку.</p>
+    <p class="lead">Снимаю для любого бизнеса — от кофейни до клиники, от автосервиса до экспертного блога. Вертикальные и горизонтальные ролики с одной съёмки.</p>
     <div class="cta">
       <a class="btn main" href="#works">Смотреть работы</a>
       <a class="btn ghost" href="#prices">Цены</a>
@@ -151,17 +173,23 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
 </header>
 
 <main>
+  <div class="trust"><div class="wrap">
+    <span>Снимаю проекты для московских студий и международных компаний</span>
+    <span>Ролики для аккаунта на 100 тыс. подписчиков</span>
+    <span>Своё профессиональное оборудование</span>
+    <span>Съёмка в 4K</span>
+  </div></div>
   <section id="services">
     <div class="wrap">
       <p class="kicker">Что снимаю</p>
       <h2>Видео, которое работает на бизнес</h2>
       <div class="tiles">
-        <div class="tile"><h3>Reels и клипы</h3><p>Короткие вертикальные ролики для Instagram, VK и сторис</p></div>
-        <div class="tile"><h3>Рекламный ролик</h3><p>Продукт или услуга крупно, с идеей и сценарием</p></div>
-        <div class="tile"><h3>Имиджевый ролик</h3><p>Атмосфера места и команды для сайта и профиля</p></div>
-        <div class="tile"><h3>Интервью и подкасты</h3><p>Свет, звук и две камеры для разговора</p></div>
-        <div class="tile"><h3>Экспертный YouTube</h3><p>Регулярные выпуски, своя сцена под каждую тему</p></div>
-        <div class="tile"><h3>Мероприятия</h3><p>Открытия, праздники, конференции — живой репортаж</p></div>
+        <a class="tile" href="#prices"><h3>Reels и клипы</h3><p>Короткие вертикальные ролики для Instagram, VK и сторис</p></a>
+        <a class="tile" href="#prices"><h3>Рекламный ролик</h3><p>Продукт или услуга крупно, с идеей и сценарием</p></a>
+        <a class="tile" href="#travel"><h3>Имиджевый ролик</h3><p>Атмосфера места и команды для сайта и профиля</p></a>
+        <a class="tile" href="#interview"><h3>Интервью и подкасты</h3><p>Свет, звук и картинка, при которых слушают спикера</p></a>
+        <a class="tile" href="#interview"><h3>Экспертный YouTube</h3><p>Регулярные выпуски, своя сцена под каждую тему</p></a>
+        <a class="tile" href="#contact"><h3>Мероприятия и трансляции</h3><p>Репортаж с открытий, праздников и конференций, прямые эфиры</p></a>
       </div>
     </div>
   </section>
@@ -179,7 +207,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
         <div class="work-head">
           <span class="tag">Общепит</span>
           <h3>Ит Лаб, бургерная</h3>
-          <p>Ролик, после которого хочется бургер прямо сейчас: шипящая котлета, тающий сыр, сочная сборка. Монтаж в ритм музыки, а в финале вывеска заведения оживает и превращается в виниловую пластинку — такой финал запоминают. Вышел совместной публикацией с заведением.</p>
+          <p>Весь путь бургера за 24 секунды: котлета шипит на раскалённой плите, сыр тает, сборка, коробка на стойке выдачи. Склейки ложатся в ритм джазового бита, а в финале круглая вывеска заведения превращается в крутящуюся виниловую пластинку. Горизонталь и вертикаль, совместная публикация с заведением.</p>
           <span class="credit"><b>Сценарий, съёмка, монтаж, цвет</b></span>
         </div>
         <div class="media">
@@ -203,7 +231,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
         <div class="work-head">
           <span class="tag">Интервью · Медицина</span>
           <h3>«Деменция нет», YouTube-проект</h3>
-          <p>Когда врач говорит о сложной теме, зритель должен ему доверять. Мягкий свет, чистая картинка в 4K и спокойный кадр помогают слушать спикера, а не отвлекаться. Две разные атмосферы — светлая и тёплая тёмная — под разные выпуски проекта.</p>
+          <p>Восемь выпусков YouTube-проекта о деменции: врачи и психологи простыми словами объясняют сложное. Две схемы света под разную атмосферу — светлая комната с мягким дневным светом и тёплый тёмный интерьер с деревом. Снято в 4K вместе с московской студией.</p>
           <span class="credit"><b>Оператор и свет.</b> Продакшн и монтаж — студия Кирилла (Москва). <a href="https://youtu.be/eRKPbYpX9zU">Выпуск целиком</a></span>
         </div>
         <div class="media">
@@ -222,7 +250,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
         <div class="work-head">
           <span class="tag">Интервью · Экспертный блог</span>
           <h3>Денис, HilltopAds</h3>
-          <p>Экспертный канал, который выглядит дорого и не надоедает: под каждую тему — своя сцена, тёплый свет и живой кадр. Снимаем регулярно с 2025 года, а для личного бренда эксперта сделали портретную фотосессию в библиотеке.</p>
+          <p>Экспертный YouTube-канал международной рекламной сети. С 2025 года больше десяти съёмочных дней, и каждый раз новая сцена: глобус с тёплой лампой, бетонная стена с лампочкой Эдисона, новогодняя библиотека в гирляндах, стена с зеброй на две камеры. Плюс портретная фотосессия эксперта среди книг.</p>
           <span class="credit"><b>Съёмка, свет, фото, часть выпусков — монтаж</b> · <a href="https://youtu.be/IusUBoWNYQU">Выпуск целиком</a></span>
         </div>
         <div class="media">
@@ -252,7 +280,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
             <div class="work-head">
               <span class="tag">Туризм · Reels</span>
               <h3>Fat Bus, туры по России и миру</h3>
-              <p>Рилсы, которые зовут в дорогу: живой ведущий, зимняя Териберка, северное сияние и Баренцево море. Сняты для турсообщества Fat Bus с аудиторией 100 тысяч подписчиков и вышли у них в профиле.</p>
+              <p>Три рилса для турсообщества Fat Bus с аудиторией 100 тысяч подписчиков: ведущий зовёт в поездку, зимняя дорога в Териберку и сама Териберка — лёд, хаски, морские ежи и северное сияние. Вышли у них в профиле.</p>
               <span class="credit"><b>Съёмка для аккаунта</b> · <a href="https://instagram.com/fat_bus">instagram.com/fat_bus</a></span>
             </div>
             <div class="trio">
@@ -266,7 +294,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
         <div class="work-head">
           <span class="tag">Туризм и отдых</span>
           <h3>База отдыха «Дружба»</h3>
-          <p>Ролик, после которого хочется забронировать домик на выходные: озеро, лес, уютные домики, рыбалка и детские качели. Дрон показывает масштаб базы, камера — уют. Готовый формат для Reels и рекламы.</p>
+          <p>Майский день на базе отдыха: вывеска на въезде, аллея вдоль озера, деревянные домики в лесу, рыбак на берегу, детские качели. Дрон показывает базу с высоты, камера — детали и людей. 25 секунд, вертикаль для Reels и рекламы.</p>
           <span class="credit"><b>Съёмка, дрон, монтаж, цвет</b></span>
         </div>
         <div class="media v">
@@ -301,7 +329,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
           <ol>
             <li><b>Знакомство.</b> Короткий созвон или встреча: чем живёт бизнес, кто ваши клиенты, что хотите показать.</li>
             <li><b>Идеи и сценарии.</b> Предлагаю 4 идеи роликов, согласуем.</li>
-            <li><b>План съёмки.</b> Раскадровка: какие кадры, где и во сколько. Вы видите ролики ещё до съёмки.</li>
+            <li><b>План съёмки.</b> Раскадровка: какие кадры, где и во сколько. Бесплатно и до оплаты — вы видите ролики ещё до съёмки.</li>
             <li><b>Съёмка.</b> Один выезд на все 4 ролика, своя техника и свет.</li>
             <li><b>Монтаж.</b> Монтаж, цвет, музыка, звук.</li>
             <li><b>Правки и сдача.</b> Вношу правки, отдаю готовые файлы под соцсети.</li>
@@ -333,6 +361,11 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
           </ol>
         </div>
       </div>
+      <ul class="terms">
+        <li><b>Раскадровка</b> бесплатно, до оплаты</li>
+        <li><b>Предоплата</b> 25%, остальное — после сдачи</li>
+        <li><b>Сдача до 5 дней</b> после съёмки: рилсы быстрее, горизонтальные ролики дольше</li>
+      </ul>
       <p class="note">Точная стоимость зависит от задачи. Напишите, что нужно, и я посчитаю.</p>
     </div>
   </section>
@@ -341,11 +374,14 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
     <div class="wrap">
       <p class="kicker">Связаться</p>
       <h2>Обсудим ваш ролик</h2>
-      <p>Напишите, чем занимаетесь, и я пришлю 2–3 идеи под ваш бизнес. Это ни к чему не обязывает.</p>
+      <p>Напишите пару слов о бизнесе, в ответ пришлю 2–3 идеи роликов под вас.</p>
       <p class="where">Снимаю в Самаре, Тольятти и по области — приеду к вам.</p>
       <div class="cta">
-        <a class="btn main" href="https://instagram.com/ilya_kinodel">Написать в Instagram</a>
+        <a class="btn main ico" href="https://t.me/+79179429589"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2 1.8 11.7c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg>Написать в Telegram</a>
+        <a class="btn ghost ico" href="https://wa.me/79179429589?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%8F%20%D1%81%20%D0%B2%D0%B0%D1%88%D0%B5%D0%B3%D0%BE%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>WhatsApp</a>
+        <a class="btn ghost ico" href="tel:+79179429589"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>+7 917 942-95-89</a>
       </div>
+      <p class="insta">Новые работы — в Instagram: <a href="https://instagram.com/ilya_kinodel">@ilya_kinodel</a></p>
     </div>
   </section>
 </main>
@@ -353,6 +389,12 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
 <footer>
   <div class="wrap">Илья Борисов · видеограф · Самара, Тольятти и Самарская область</div>
 </footer>
+
+<nav class="float" aria-label="Связаться">
+  <a href="https://t.me/+79179429589" class="f-tg" aria-label="Написать в Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2 1.8 11.7c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg><span>Telegram</span></a>
+  <a href="https://wa.me/79179429589?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%8F%20%D1%81%20%D0%B2%D0%B0%D1%88%D0%B5%D0%B3%D0%BE%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0" class="f-wa" aria-label="Написать в WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg></a>
+  <a href="tel:+79179429589" class="f-ph" aria-label="Позвонить"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
+</nav>
 
 <div id="box" role="dialog" aria-label="Кадр"><img alt=""></div>
 <script>
@@ -365,6 +407,10 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') box.classLis
 // Остальные видео ставим на паузу, когда запускают одно
 const players = document.querySelectorAll('video.player');
 players.forEach(v => v.addEventListener('play', () => players.forEach(o => { if (o !== v) o.pause(); })));
+function openCat(id) { const d = document.getElementById(id); if (d && d.tagName === 'DETAILS') d.open = true; }
+window.addEventListener('hashchange', () => openCat(location.hash.slice(1)));
+openCat(location.hash.slice(1));
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => openCat(a.getAttribute('href').slice(1))));
 document.querySelectorAll('details.cat').forEach(d => d.addEventListener('toggle', () => { if (!d.open) d.querySelectorAll('video').forEach(v => v.pause()); }));
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelector('.hero video').pause();
 </script>
