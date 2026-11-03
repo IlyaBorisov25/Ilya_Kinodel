@@ -38,7 +38,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .hero .shade { background: linear-gradient(180deg, rgba(17,17,19,.35) 0%, rgba(17,17,19,.55) 55%, var(--bg) 100%); }
 .hero .wrap { position: relative; width: 100%; padding-top: 120px; padding-bottom: 48px; }
 .role { font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px; }
-h1 { font-family: var(--display); font-weight: 600; font-size: clamp(36px, 7vw, 76px); line-height: 1; margin: 0; text-wrap: balance; }
+h1 { font-family: var(--display); font-weight: 600; font-size: clamp(38px, 7.5vw, 84px); line-height: 1.02; margin: 0; text-wrap: balance; }
+.role { font-size: 15px; }
+.formats { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; }
+.formats span { border: 1px solid rgba(232,162,74,.55); color: var(--text); background: rgba(17,17,19,.45); padding: 6px 14px; border-radius: 999px; font-size: 15px; font-weight: 500; }
 .lead { max-width: 52ch; margin: 18px 0 28px; font-size: 19px; color: #dcd9d0; }
 .cta { display: flex; flex-wrap: wrap; gap: 12px; }
 .btn { display: inline-block; text-decoration: none; padding: 12px 22px; border-radius: 999px; font-weight: 700; font-size: 16px; }
@@ -133,8 +136,9 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
   <video src="media/hero.mp4" poster="media/hero.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
   <div class="shade"></div>
   <div class="wrap">
-    <p class="role">Видеограф · Тольятти</p>
-    <h1>Илья Борисов</h1>
+    <p class="role">Илья Борисов · видеограф · Тольятти</p>
+    <h1>Видеосъёмка<br>для бизнеса</h1>
+    <p class="formats"><span>Reels и клипы</span><span>Рекламные ролики</span><span>Интервью и подкасты</span></p>
     <p class="lead">Снимаю ролики, после которых хочется прийти: в кафе, на базу отдыха, на приём к врачу. Вертикаль для соцсетей и горизонталь для сайта с одной съёмки.</p>
     <div class="cta">
       <a class="btn main" href="#works">Смотреть работы</a>
