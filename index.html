@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Илья Борисов — видеограф</title>
-<meta name="description" content="Илья Борисов, видеограф в Самаре и Тольятти. Ролики для общепита, туризма, медицины и экспертные интервью.">
+<meta name="description" content="Илья Борисов, видеограф в Самаре и Тольятти. Ролики для кафе и ресторанов, туризма, медицины и экспертные интервью.">
 <meta property="og:title" content="Илья Борисов — видеограф">
-<meta property="og:description" content="Ролики для бизнеса в Самаре и Тольятти: общепит, туризм, интервью.">
+<meta property="og:description" content="Ролики для бизнеса в Самаре и Тольятти: кафе и рестораны, туризм, интервью.">
 <meta property="og:image" content="media/hero.jpg">
 <link href="fonts.css" rel="stylesheet">
 <style>
@@ -29,8 +29,39 @@ a { color: var(--accent); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
 
+/* Top bar + menu */
+.bar { position: fixed; top: 0; left: 0; right: 0; z-index: 20; transition: background .25s, border-color .25s; border-bottom: 1px solid transparent; }
+.bar.solid, body.menu-open .bar { background: rgba(17,17,19,.94); border-color: var(--line); backdrop-filter: blur(8px); }
+.bar .wrap { display: flex; align-items: center; gap: 12px; height: 60px; }
+.brand { font-family: var(--display); font-size: 16px; color: var(--text); text-decoration: none; margin-right: auto; white-space: nowrap; }
+.order { background: var(--accent); color: #1a1206; text-decoration: none; font-weight: 700; font-size: 15px; padding: 9px 18px; border-radius: 999px; white-space: nowrap; }
+.order:hover { filter: brightness(1.08); }
+.burger { width: 44px; height: 44px; border: 1px solid rgba(239,237,231,.35); border-radius: 50%; background: rgba(17,17,19,.4); cursor: pointer; display: grid; place-items: center; padding: 0; }
+.burger span, .burger span::before, .burger span::after { display: block; width: 18px; height: 2px; background: var(--text); position: relative; transition: transform .25s, background .25s; }
+.burger span::before, .burger span::after { content: ""; position: absolute; left: 0; }
+.burger span::before { top: -6px; } .burger span::after { top: 6px; }
+body.menu-open .burger span { background: transparent; }
+body.menu-open .burger span::before { transform: translateY(6px) rotate(45deg); }
+body.menu-open .burger span::after { transform: translateY(-6px) rotate(-45deg); }
+.menu { position: fixed; top: 60px; left: 0; right: 0; z-index: 19; background: rgba(17,17,19,.97); border-bottom: 1px solid var(--line); display: none; }
+body.menu-open .menu { display: block; }
+.menu ul { list-style: none; margin: 0 auto; padding: 8px 20px 20px; max-width: 1120px; }
+.menu a { display: block; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--text); text-decoration: none; font-family: var(--display); font-size: 22px; }
+.menu li:last-child a { border-bottom: 0; }
+.menu a:hover { color: var(--accent); }
+[id] { scroll-margin-top: 70px; }
+@media (max-width: 380px) { .brand { font-size: 14px; } .order { padding: 8px 14px; font-size: 14px; } }
+
+/* Why me */
+.why { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; counter-reset: why; }
+.why div { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
+.why div::before { counter-increment: why; content: "0" counter(why); display: block; font-family: var(--display); font-size: 30px; color: var(--accent); margin-bottom: 10px; }
+.why h3 { font-size: 19px; margin: 0 0 8px; }
+.why p { margin: 0; color: var(--muted); font-size: 15px; }
+
 /* Hero */
-.hero { position: relative; min-height: 560px; display: flex; align-items: flex-end; overflow: hidden; }
+.hero { position: relative; min-height: 88vh; min-height: 88svh; display: flex; align-items: flex-end; overflow: hidden; background: #000 url(media/hero.jpg) center / cover; }
+@media (orientation: portrait) { .hero { background-image: url(media/hero_v.jpg); } }
 .hero video, .hero .shade { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero video { object-fit: cover; }
 .hero .shade { background: linear-gradient(180deg, rgba(17,17,19,.35) 0%, rgba(17,17,19,.55) 55%, var(--bg) 100%); }
@@ -38,10 +69,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .role { font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px; }
 h1 { font-family: var(--display); font-weight: 600; font-size: clamp(38px, 7.5vw, 84px); line-height: 1.02; margin: 0; text-wrap: balance; }
 .role { font-size: 15px; }
-.utp { font-size: clamp(19px, 2.4vw, 24px); font-weight: 700; max-width: 40ch; margin: 22px 0 0; color: var(--text); border-left: 3px solid var(--accent); padding-left: 14px; }
+.key { color: var(--accent); white-space: nowrap; }
+.sub { font-family: var(--display); font-weight: 400; font-size: clamp(20px, 2.8vw, 30px); line-height: 1.2; margin: 16px 0 0; color: var(--text); }
+.utp { font-size: clamp(19px, 2.4vw, 24px); font-weight: 700; max-width: 40ch; margin: 22px 0 30px; color: var(--text); border-left: 3px solid var(--accent); padding-left: 14px; }
 .trust { border-bottom: 1px solid var(--line); background: var(--panel); }
-.trust .wrap { display: flex; flex-wrap: wrap; gap: 10px 28px; padding-top: 16px; padding-bottom: 16px; font-size: 14px; color: var(--muted); }
-.trust span::before { content: "\2726"; color: var(--accent); margin-right: 8px; font-size: 11px; }
+.trust .wrap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 24px; padding-top: 22px; padding-bottom: 22px; }
+.trust span { display: flex; gap: 10px; align-items: flex-start; font-size: 16px; font-weight: 600; line-height: 1.4; color: var(--text); }
+.trust span::before { content: "\2726"; color: var(--accent); font-size: 14px; line-height: 1.6; flex: none; }
+@media (max-width: 860px) { .trust .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .trust .wrap { gap: 12px 16px; padding-top: 18px; padding-bottom: 18px; } .trust span { font-size: 14px; } }
 a.tile { text-decoration: none; color: inherit; transition: border-color .2s, transform .2s; }
 a.tile:hover { border-color: var(--accent); transform: translateY(-2px); }
 .terms { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
@@ -85,15 +121,22 @@ footer { padding-bottom: 96px !important; }
 
 /* Sections */
 section { padding: 72px 0; border-top: 1px solid var(--line); }
+.intro { max-width: 60ch; margin: -12px 0 28px; color: var(--muted); font-size: 18px; }
 .kicker { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px; }
 h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 40px); line-height: 1.15; margin: 0 0 28px; text-wrap: balance; }
 h3 { font-family: var(--display); font-weight: 400; font-size: 22px; margin: 0 0 8px; }
 .muted { color: var(--muted); }
 
-.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
-.tile { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 10px; padding: 14px 16px; }
-.tile h3 { font-family: var(--body); font-weight: 700; font-size: 16px; margin: 0 0 4px; }
-.tile p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.tile { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 12px; padding: 24px 24px 26px; }
+.tile h3 { font-family: var(--body); font-weight: 700; font-size: 20px; margin: 0 0 8px; }
+.tile p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.5; }
+@media (max-width: 680px) {
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .tile { padding: 14px 14px 16px; border-radius: 10px; }
+  .tile h3 { font-size: 16px; margin-bottom: 4px; }
+  .tile p { font-size: 14px; line-height: 1.45; }
+}
 .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
 .card h3 { font-size: 18px; }
@@ -130,7 +173,7 @@ video.player { width: 100%; display: block; border-radius: 12px; background: #00
 .stills { display: grid; gap: 8px; }
 .stills.h { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
 .stills.v { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
-.trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 760px; }
+.trio { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; max-width: 1000px; }
 .stills.p { grid-template-columns: repeat(2, minmax(0, 220px)); }
 .stills button { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 8px; overflow: hidden; }
 .stills img { width: 100%; display: block; transition: transform .3s; }
@@ -143,7 +186,7 @@ video.player { width: 100%; display: block; border-radius: 12px; background: #00
 .price .sum { font-family: var(--display); font-size: 30px; color: var(--accent); margin: 0 0 18px; font-variant-numeric: tabular-nums; }
 .price ol { margin: 0; padding: 18px 0 0 20px; border-top: 1px solid var(--line); display: grid; gap: 10px; font-size: 15px; color: var(--muted); }
 .price ol b { color: var(--text); font-weight: 700; }
-.note { color: var(--muted); margin: 20px 0 0; }
+.note { color: var(--muted); margin: 36px 0 0; }
 
 .contact { text-align: left; }
 .contact p { max-width: 52ch; color: var(--muted); margin: 0 0 24px; }
@@ -155,7 +198,6 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
 #box img { max-width: 100%; max-height: 100%; border-radius: 6px; }
 
 @media (max-width: 680px) {
-  .hero { min-height: 480px; }
   .media.v { grid-template-columns: 1fr; }
   .media.v video { max-width: 340px; margin: 0 auto; }
   section { padding: 56px 0; }
@@ -168,39 +210,59 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
 </head>
 <body>
 
-<header class="hero">
-  <video src="media/hero.mp4" poster="media/hero.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+<div class="bar"><div class="wrap">
+  <a class="brand" href="#top">Илья Борисов</a>
+  <a class="order" href="#contact">Заказать</a>
+  <button class="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="menu"><span></span></button>
+</div></div>
+<nav class="menu" id="menu" aria-label="Разделы">
+  <ul>
+    <li><a href="#works">Работы</a></li>
+    <li><a href="#services">Что снимаю</a></li>
+    <li><a href="#why">Почему со мной</a></li>
+    <li><a href="#prices">Цены</a></li>
+    <li><a href="#contact">Контакты</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <video autoplay muted loop playsinline aria-hidden="true">
+    <source src="media/hero_v.mp4" type="video/mp4" media="(orientation: portrait)">
+    <source src="media/hero.mp4" type="video/mp4">
+  </video>
   <div class="shade"></div>
   <div class="wrap">
-    <p class="role">Илья Борисов · видеограф · Самара и Тольятти</p>
-    <h1>Видеосъёмка<br>для бизнеса</h1>
-    <p class="formats"><span>Reels и клипы</span><span>Рекламные ролики</span><span>Интервью и подкасты</span></p>
-    <p class="utp">Покажу ваш ролик ещё до съёмки: раскадровка и идеи — бесплатно, а 4 ролика на месяц — за одну съёмку.</p>
-    <p class="lead">Снимаю для любого бизнеса — от кофейни до клиники, от автосервиса до экспертного блога. Вертикальные и горизонтальные ролики с одной съёмки.</p>
+    <p class="role">Видеограф · Самара и Тольятти</p>
+    <h1>Видеосъёмка<br>для бизнеса <span class="key">под ключ</span></h1>
+    <p class="sub">От идеи до готового ролика за 5 дней</p>
+    <p class="utp">Вы увидите свой ролик ещё до съёмки: раскадровку и идеи отправлю бесплатно.</p>
     <div class="cta">
-      <a class="btn main" href="#works">Смотреть работы</a>
-      <a class="btn ghost" href="#prices">Цены</a>
+      <a class="btn main" href="#contact">Заказать ролик</a>
+      <a class="btn ghost" href="#works">Смотреть работы</a>
     </div>
   </div>
 </header>
 
 <main>
   <div class="trust"><div class="wrap">
-    <span>Снимаю проекты для московских студий и международных компаний</span>
+    <span>Под ключ: от идеи до готового ролика</span>
+    <span>Снимаю проекты для крупных студий и международных компаний</span>
     <span>Ролики для аккаунта на 100 тыс. подписчиков</span>
-    <span>Своё профессиональное оборудование</span>
-    <span>Съёмка в 4K</span>
+    <span>Многокамерная съёмка и прямые трансляции</span>
+    <span>Своя техника: камеры, свет, звук, стабилизаторы и не только</span>
+    <span>Вертикальные и горизонтальные ролики с одной съёмки</span>
   </div></div>
   <section id="services">
     <div class="wrap">
       <p class="kicker">Что снимаю</p>
       <h2>Видео, которое работает на бизнес</h2>
+      <p class="intro">Снимаю для любого бизнеса — от кофейни до клиники, от автосервиса до экспертного блога.</p>
       <div class="tiles">
-        <a class="tile" href="#prices"><h3>Reels и клипы</h3><p>Короткие вертикальные ролики для Instagram, VK и сторис</p></a>
-        <a class="tile" href="#prices"><h3>Рекламный ролик</h3><p>Продукт или услуга крупно, с идеей и сценарием</p></a>
+        <a class="tile" href="#prices"><h3>Reels и клипы</h3><p>Короткие вертикальные ролики для Reels, VK Клипов и Shorts</p></a>
+        <a class="tile" href="#prices"><h3>Рекламный ролик</h3><p>Продукт или услуга — с идеей и сценарием</p></a>
         <a class="tile" href="#travel"><h3>Имиджевый ролик</h3><p>Атмосфера места и команды для сайта и профиля</p></a>
-        <a class="tile" href="#interview"><h3>Интервью и подкасты</h3><p>Свет, звук и картинка, при которых слушают спикера</p></a>
-        <a class="tile" href="#interview"><h3>Экспертный YouTube</h3><p>Регулярные выпуски, своя сцена под каждую тему</p></a>
+        <a class="tile" href="#interview"><h3>Интервью и подкасты</h3><p>Свет, звук и картинка, при которых слушают спикеров</p></a>
+        <a class="tile" href="#interview"><h3>Экспертный YouTube</h3><p>Регулярные выпуски, помощь со сценарием под каждую тему</p></a>
         <a class="tile" href="#contact"><h3>Мероприятия и трансляции</h3><p>Репортаж с открытий, праздников и конференций, прямые эфиры</p></a>
       </div>
     </div>
@@ -213,13 +275,13 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
       <p class="muted" style="margin:-16px 0 24px">Откройте нужное направление, чтобы посмотреть ролики и кадры.</p>
 
       <details class="cat" id="food" open>
-        <summary><span class="cat-name">Общепит</span><span class="cat-desc">Кафе, бары, рестораны</span></summary>
+        <summary><span class="cat-name">Кафе и рестораны</span><span class="cat-desc">Кафе, бары, пабы, бургерные</span></summary>
         <div class="cat-body">
       <article class="work">
         <div class="work-head">
-          <span class="tag">Общепит</span>
+          <span class="tag">Кафе и рестораны</span>
           <h3>Ит Лаб, бургерная</h3>
-          <p>Весь путь бургера за 24 секунды: котлета шипит на раскалённой плите, сыр тает, сборка, коробка на стойке выдачи. Склейки ложатся в ритм джазового бита, а в финале круглая вывеска заведения превращается в крутящуюся виниловую пластинку. Горизонталь и вертикаль, совместная публикация с заведением.</p>
+          <p>Рекламный ролик для бургерной: процесс приготовления блюд для гостей — от котлеты на плите до готового бургера. Съёмка крупными планами на работающей кухне, на готовый ролик добавлены графика и звуковые эффекты. Клиент получил две версии: вертикальную и горизонтальную.</p>
           <span class="credit"><b>Сценарий, съёмка, монтаж, цвет</b></span>
         </div>
         <div class="media">
@@ -233,6 +295,50 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
           </div>
         </div>
       </article>
+
+      <article class="work">
+        <div class="work-head">
+          <span class="tag">Бары · Reels</span>
+          <h3>Рюмочная «У Толика», Тольятти</h3>
+          <p>Рилс для рюмочной: пятничный вечер, передающий настроение заведения. Репортажная съёмка во время работы бара — без постановки, живые эмоции гостей и персонала, с нескольких ракурсов.</p>
+          <span class="credit"><b>Съёмка, монтаж, цвет</b></span>
+        </div>
+        <div class="media v">
+          <video class="player" src="media/tolik.mp4" poster="media/tolik_poster.jpg" controls playsinline preload="none"></video>
+          <div class="stills v">
+            <button type="button"><img src="media/tolik_01.jpg" alt="Вывеска «У Толика» на проспекте" loading="lazy"></button>
+            <button type="button"><img src="media/tolik_02.jpg" alt="Барная стойка в красном свете" loading="lazy"></button>
+            <button type="button"><img src="media/tolik_03.jpg" alt="Гости у стойки" loading="lazy"></button>
+            <button type="button"><img src="media/tolik_04.jpg" alt="Бармен за стойкой" loading="lazy"></button>
+            <button type="button"><img src="media/tolik_05.jpg" alt="Бармен крупно" loading="lazy"></button>
+            <button type="button"><img src="media/tolik_06.jpg" alt="Гостья у бара" loading="lazy"></button>
+            <button type="button"><img src="media/tolik_07.jpg" alt="Неоновая надпись" loading="lazy"></button>
+            <button type="button"><img src="media/tolik_08.jpg" alt="Гость с рюмкой у стойки" loading="lazy"></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="work-head">
+          <span class="tag">Бары · Reels</span>
+          <h3>Паб «Бууз»</h3>
+          <p>Атмосферный рилс для паба в вечер живой музыки: живые эмоции гостей, бурная энергетика, кавер-группа и танцпол. Репортажная съёмка прямо во время концерта — без постановки, с нескольких ракурсов, по заранее согласованной раскадровке. Запись живого звука.</p>
+          <span class="credit"><b>Съёмка, монтаж, цвет, звук</b></span>
+        </div>
+        <div class="media v">
+          <video class="player" src="media/buuz.mp4" poster="media/buuz_03.jpg" controls playsinline preload="none"></video>
+          <div class="stills v">
+            <button type="button"><img src="media/buuz_01.jpg" alt="Бармены наливают пиво" loading="lazy"></button>
+            <button type="button"><img src="media/buuz_02.jpg" alt="Коктейли у барной стойки" loading="lazy"></button>
+            <button type="button"><img src="media/buuz_04.jpg" alt="Зал танцует под живую музыку" loading="lazy"></button>
+            <button type="button"><img src="media/buuz_05.jpg" alt="Саксофонист и группа" loading="lazy"></button>
+            <button type="button"><img src="media/buuz_06.jpg" alt="Трубач крупно" loading="lazy"></button>
+            <button type="button"><img src="media/buuz_07.jpg" alt="Гости поют с бокалами" loading="lazy"></button>
+            <button type="button"><img src="media/buuz_08.jpg" alt="Вокалист в зале" loading="lazy"></button>
+            <button type="button"><img src="media/buuz_09.jpg" alt="Вывеска паба Бууз" loading="lazy"></button>
+          </div>
+        </div>
+      </article>
         </div>
       </details>
 
@@ -243,8 +349,8 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
         <div class="work-head">
           <span class="tag">Интервью · Медицина</span>
           <h3>«Деменция нет», YouTube-проект</h3>
-          <p>Восемь выпусков YouTube-проекта о деменции: врачи и психологи простыми словами объясняют сложное. Две схемы света под разную атмосферу — светлая комната с мягким дневным светом и тёплый тёмный интерьер с деревом. Снято в 4K вместе с московской студией.</p>
-          <span class="credit"><b>Оператор и свет.</b> Продакшн и монтаж — студия Кирилла (Москва). <a href="https://youtu.be/eRKPbYpX9zU">Выпуск целиком</a></span>
+          <p>Восемь выпусков YouTube-проекта о деменции: врачи и психологи простыми словами объясняют сложное. Использовались различные схемы света под разную атмосферу. Съёмка на две камеры в формате 4K, звук записывался отдельно на профессиональное оборудование. Работа с экспертами в кадре, а также работа в роли интервьюера: диалог с героиней из-за кадра.</p>
+          <span class="credit"><b>Оператор, свет и звук</b> · <a href="https://youtu.be/eRKPbYpX9zU">Выпуск целиком</a></span>
         </div>
         <div class="media">
           <video class="player" src="media/dementia.mp4" poster="media/dem_05.jpg" controls playsinline preload="none"></video>
@@ -262,8 +368,8 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
         <div class="work-head">
           <span class="tag">Интервью · Экспертный блог</span>
           <h3>Денис, HilltopAds</h3>
-          <p>Экспертный YouTube-канал международной рекламной сети. С 2025 года больше десяти съёмочных дней, и каждый раз новая сцена: глобус с тёплой лампой, бетонная стена с лампочкой Эдисона, новогодняя библиотека в гирляндах, стена с зеброй на две камеры. Плюс портретная фотосессия эксперта среди книг.</p>
-          <span class="credit"><b>Съёмка, свет, фото, часть выпусков — монтаж</b> · <a href="https://youtu.be/IusUBoWNYQU">Выпуск целиком</a></span>
+          <p>Экспертный YouTube-канал международной рекламной сети: с 2025 года — более 50 роликов. Проект снимается на две камеры в формате 4K с телесуфлёром, звук записывается на профессиональное оборудование. Работа со спикером в кадре, помощь в подборе и выстраивании локаций под каждый выпуск, а также прямые трансляции на YouTube через OBS Studio. Плюс портретная фотосессия эксперта.</p>
+          <span class="credit"><b>Съёмка, свет, звук, трансляции, фото, часть выпусков — монтаж</b> · <a href="https://youtu.be/IusUBoWNYQU">Выпуск целиком</a></span>
         </div>
         <div class="media">
           <video class="player" src="media/denis.mp4" poster="media/den_08.jpg" controls playsinline preload="none"></video>
@@ -292,21 +398,22 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
             <div class="work-head">
               <span class="tag">Туризм · Reels</span>
               <h3>Fat Bus, туры по России и миру</h3>
-              <p>Три рилса для турсообщества Fat Bus с аудиторией 100 тысяч подписчиков: ведущий зовёт в поездку, зимняя дорога в Териберку и сама Териберка — лёд, хаски, морские ежи и северное сияние. Вышли у них в профиле.</p>
+              <p>Вертикальные ролики для туристической компании Fat Bus (аудитория более 100 тысяч подписчиков). Съёмка велась на живой локации прямо во время туров — на побережье Шри-Ланки, в Териберке и в Грузии.</p>
               <span class="credit"><b>Съёмка для аккаунта</b> · <a href="https://instagram.com/fat_bus">instagram.com/fat_bus</a></span>
             </div>
             <div class="trio">
               <video class="player" src="media/fatbus_1.mp4" poster="media/fatbus_1.jpg" controls playsinline preload="none"></video>
               <video class="player" src="media/fatbus_2.mp4" poster="media/fatbus_2.jpg" controls playsinline preload="none"></video>
               <video class="player" src="media/fatbus_3.mp4" poster="media/fatbus_3.jpg" controls playsinline preload="none"></video>
+              <video class="player" src="media/fatbus_4.mp4" poster="media/fatbus_4.jpg" controls playsinline preload="none" aria-label="Грузия"></video>
             </div>
           </article>
 
       <article class="work">
         <div class="work-head">
-          <span class="tag">Туризм и отдых</span>
+          <span class="tag">Туризм · Реклама</span>
           <h3>База отдыха «Дружба»</h3>
-          <p>Майский день на базе отдыха: вывеска на въезде, аллея вдоль озера, деревянные домики в лесу, рыбак на берегу, детские качели. Дрон показывает базу с высоты, камера — детали и людей. 25 секунд, вертикаль для Reels и рекламы.</p>
+          <p>Рекламный ролик для базы отдыха. Съёмка велась на камеру со стабилизатором, плюс аэросъёмка с дрона, звук записывался на аудиорекордер. Из готового материала получилось несколько вертикальных роликов и один горизонтальный.</p>
           <span class="credit"><b>Съёмка, дрон, монтаж, цвет</b></span>
         </div>
         <div class="media v">
@@ -326,6 +433,31 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
         </div>
       </details>
 
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <p class="kicker">Почему со мной</p>
+      <h2>Вы знаете, что получите, ещё до оплаты</h2>
+      <div class="why">
+        <div>
+          <h3>Ролик видно до съёмки</h3>
+          <p>Присылаю идеи и раскадровку под ваш бизнес бесплатно, до предоплаты. Не понравится — ни к чему не обязывает.</p>
+        </div>
+        <div>
+          <h3>Приеду к вам</h3>
+          <p>Снимаю в вашем зале, с вашей командой и гостями, а не в чужой студии. Самара, Тольятти и область, своя техника и свет.</p>
+        </div>
+        <div>
+          <h3>Предоплата всего 25%</h3>
+          <p>Остальное — после того, как увидите готовые ролики. Цена известна заранее, без смет «по итогам».</p>
+        </div>
+        <div>
+          <h3>Готово за 5 дней</h3>
+          <p>Рилсы сдаю быстрее, горизонтальные ролики — до 5 дней после съёмки. Два круга правок уже в цене.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -380,7 +512,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
             <li><b>Бриф.</b> Задача ролика, продукт, аудитория, где будет показ.</li>
             <li><b>Идея и сценарий.</b> Предлагаю идею, пишу сценарий, согласуем.</li>
             <li><b>Раскадровка и подготовка.</b> План кадров, локация, реквизит, люди в кадре.</li>
-            <li><b>Съёмка.</b> Камера, свет, при необходимости дрон.</li>
+            <li><b>Съёмка.</b> Камера, свет, звук и всё необходимое под задачу.</li>
             <li><b>Постпродакшн.</b> Монтаж, цвет, звук, музыка, графика.</li>
             <li><b>Правки и сдача.</b> Вношу правки, отдаю версии под нужные площадки.</li>
           </ol></details>
@@ -390,7 +522,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
           <p class="what">Конференции, презентации, открытия и праздники в прямом эфире</p>
           <p class="sum">от 15 000 ₽</p>
           <details class="how"><summary>Как проходит работа</summary><ol>
-            <li><b>Формат.</b> Обсуждаем мероприятие, длительность и площадку эфира: VK, YouTube, Telegram или сайт.</li>
+            <li><b>Формат.</b> Обсуждаем мероприятие, длительность и площадку эфира: VK, YouTube, МТС Линк или сайт.</li>
             <li><b>Проверка площадки.</b> Заранее смотрю интернет, свет и звук на месте, чтобы эфир не сорвался.</li>
             <li><b>Подготовка.</b> Ставлю камеры, свет и звук, проверяю картинку до начала.</li>
             <li><b>Эфир.</b> Веду трансляцию от начала до конца: картинка, звук, переключение планов.</li>
@@ -399,11 +531,11 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
         </div>
       </div>
       <ul class="terms">
-        <li><b>Раскадровка</b> бесплатно, до оплаты</li>
-        <li><b>Предоплата</b> 25%, остальное — после сдачи</li>
-        <li><b>Сдача до 5 дней</b> после съёмки: рилсы быстрее, горизонтальные ролики дольше</li>
+        <li><b>Раскадровка</b> вашего ролика <b>бесплатно</b></li>
+        <li><b>Предоплата 25%</b>, остальное — после сдачи ролика</li>
+        <li><b>Сдача до 5 дней</b> после съёмки (в зависимости от объёма материала)</li>
       </ul>
-      <p class="note">Точная стоимость зависит от задачи. Напишите, что нужно, и я посчитаю.</p>
+      <p class="note">Точная стоимость зависит от задачи. Напишите, какой ролик нужен, и я посчитаю.</p>
     </div>
   </section>
 
@@ -411,7 +543,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
     <div class="wrap">
       <p class="kicker">Связаться</p>
       <h2>Обсудим ваш ролик</h2>
-      <p>Напишите пару слов о бизнесе, в ответ пришлю 2–3 идеи роликов под вас.</p>
+      <p>Напишите пару строк: что за место, чем вы особенные и где будете выкладывать ролик. В ответ — 2–3 идеи и примерная стоимость.</p>
       <p class="where">Снимаю в Самаре, Тольятти и по области — приеду к вам.</p>
       <div class="cta">
         <a class="btn main ico" href="https://t.me/boriso_philia"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2 1.8 11.7c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg>Написать в Telegram</a>
@@ -450,6 +582,14 @@ openCat(location.hash.slice(1));
 document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => openCat(a.getAttribute('href').slice(1))));
 document.querySelectorAll('details.cat').forEach(d => d.addEventListener('toggle', () => { if (!d.open) d.querySelectorAll('video').forEach(v => v.pause()); }));
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelector('.hero video').pause();
+// Шапка: фон при прокрутке, меню-бургер
+const bar = document.querySelector('.bar'), burger = document.querySelector('.burger');
+const onScroll = () => bar.classList.toggle('solid', window.scrollY > 40);
+window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+const setMenu = open => { document.body.classList.toggle('menu-open', open); burger.setAttribute('aria-expanded', open); };
+burger.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+document.querySelectorAll('.menu a, .bar a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 </script>
 </body>
 </html>
