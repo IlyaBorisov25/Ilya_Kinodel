@@ -174,6 +174,9 @@ video.player { width: 100%; display: block; border-radius: 12px; background: #00
 .stills.h { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
 .stills.v { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
 .trio { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; max-width: 1000px; }
+.nda { border: 1px dashed var(--line); border-radius: 12px; padding: 22px 24px; background: var(--panel); max-width: 640px; }
+.nda b { display: block; margin-bottom: 6px; }
+.nda p { margin: 0; color: var(--muted); }
 .stills.p { grid-template-columns: repeat(2, minmax(0, 220px)); }
 .stills button { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 8px; overflow: hidden; }
 .stills img { width: 100%; display: block; transition: transform .3s; }
@@ -279,27 +282,6 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
         <div class="cat-body">
       <article class="work">
         <div class="work-head">
-          <span class="tag">Кафе и рестораны</span>
-          <h3>Ит Лаб, бургерная</h3>
-          <p>Рекламный ролик для бургерной: процесс приготовления блюд для гостей — от котлеты на плите до готового бургера. Съёмка крупными планами на работающей кухне, на готовый ролик добавлены графика и звуковые эффекты. Клиент получил две версии: вертикальную и горизонтальную.</p>
-          <span class="credit"><b>Сценарий, съёмка, монтаж, цвет</b></span>
-        </div>
-        <div class="media">
-          <video class="player" src="media/itlab.mp4" poster="media/it_05.jpg" controls playsinline preload="none"></video>
-          <div class="stills h">
-            <button type="button"><img src="media/it_gfx.jpg" alt="Графика в ролике: контур пластинки и аудиоплеер поверх бургера" loading="lazy"></button>
-            <button type="button"><img src="media/it_01.jpg" alt="Бургер в коробке, вид сверху" loading="lazy"></button>
-            <button type="button"><img src="media/it_02.jpg" alt="Котлета на плите, дым" loading="lazy"></button>
-            <button type="button"><img src="media/it_04.jpg" alt="Сыр плавится на котлетах" loading="lazy"></button>
-            <button type="button"><img src="media/it_06.jpg" alt="Готовый бургер на бумаге" loading="lazy"></button>
-            <button type="button"><img src="media/it_08.jpg" alt="Заказ на стойке выдачи" loading="lazy"></button>
-            <button type="button"><img src="media/it_sign.jpg" alt="Вывеска eat·lab в зале" loading="lazy"></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="work">
-        <div class="work-head">
           <span class="tag">Бары · Reels</span>
           <h3>Рюмочная «У Толика»</h3>
           <p>Рилс для рюмочной: пятничный вечер, передающий настроение заведения. Репортажная съёмка во время работы бара — без постановки, живые эмоции гостей и персонала, с нескольких ракурсов.</p>
@@ -312,7 +294,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
             <button type="button"><img src="media/tolik_02.jpg" alt="Барная стойка в красном свете" loading="lazy"></button>
             <button type="button"><img src="media/tolik_03.jpg" alt="Гости у стойки" loading="lazy"></button>
             <button type="button"><img src="media/tolik_04.jpg" alt="Бармен за стойкой" loading="lazy"></button>
-            <button type="button"><img src="media/tolik_05.jpg" alt="Бармен крупно" loading="lazy"></button>
+            <button type="button"><img src="media/tolik_laugh.jpg" alt="Гость смеётся у барной стойки" loading="lazy"></button>
             <button type="button"><img src="media/tolik_06.jpg" alt="Гостья у бара" loading="lazy"></button>
             <button type="button"><img src="media/tolik_07.jpg" alt="Неоновая надпись" loading="lazy"></button>
             <button type="button"><img src="media/tolik_08.jpg" alt="Гость с рюмкой у стойки" loading="lazy"></button>
@@ -341,26 +323,45 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
           </div>
         </div>
       </article>
+
+      <article class="work">
+        <div class="work-head">
+          <span class="tag">Кафе и рестораны</span>
+          <h3>Ит Лаб, бургерная</h3>
+          <p>Рекламный ролик для бургерной: процесс приготовления блюд для гостей — от котлеты на плите до готового бургера. Съёмка крупными планами на работающей кухне, на готовый ролик добавлены графика и звуковые эффекты. Клиент получил две версии: вертикальную и горизонтальную.</p>
+          <span class="credit"><b>Сценарий, съёмка, монтаж, цвет</b></span>
+        </div>
+        <div class="media">
+          <video class="player" src="media/itlab.mp4" poster="media/it_05.jpg" controls playsinline preload="none"></video>
+          <div class="stills h">
+            <button type="button"><img src="media/it_gfx.jpg" alt="Графика в ролике: контур пластинки и аудиоплеер поверх бургера" loading="lazy"></button>
+            <button type="button"><img src="media/it_sign.jpg" alt="Вывеска eat·lab в зале" loading="lazy"></button>
+            <button type="button"><img src="media/it_02.jpg" alt="Котлета на плите, дым" loading="lazy"></button>
+            <button type="button"><img src="media/it_04.jpg" alt="Сыр плавится на котлетах" loading="lazy"></button>
+            <button type="button"><img src="media/it_08.jpg" alt="Заказ на стойке выдачи" loading="lazy"></button>
+          </div>
+        </div>
+      </article>
         </div>
       </details>
 
       <details class="cat" id="interview">
-        <summary><span class="cat-name">Интервью и эксперты</span><span class="cat-desc">YouTube, подкасты, экспертные блоги</span></summary>
+        <summary><span class="cat-name">Интервью и эксперты</span><span class="cat-desc">YouTube, подкасты, экспертные блоги и прямые трансляции</span></summary>
         <div class="cat-body">
       <article class="work">
         <div class="work-head">
           <span class="tag">Интервью · Медицина</span>
           <h3>«Деменция нет», YouTube-проект</h3>
           <p>Восемь выпусков YouTube-проекта о деменции: врачи и психологи простыми словами объясняют сложное. Использовались различные схемы света под разную атмосферу. Съёмка на две камеры в формате 4K, звук записывался отдельно на профессиональное оборудование. Работа с экспертами в кадре, а также работа в роли интервьюера: диалог с героиней из-за кадра.</p>
-          <span class="credit"><b>Оператор, свет и звук</b> · <a href="https://youtu.be/12PTyhSOQ1U?t=118">Выпуск с этой схемой света</a></span>
+          <span class="credit"><b>Оператор, свет и звук</b> · <a href="https://youtu.be/eRKPbYpX9zU">Выпуск с этой схемой света</a></span>
         </div>
         <div class="media">
-          <video class="player" src="media/dementia.mp4" poster="media/dem_nat.jpg" controls playsinline preload="none"></video>
+          <video class="player" src="media/dementia.mp4" poster="media/dem_01.jpg" controls playsinline preload="none"></video>
           <div class="stills h">
-            <button type="button"><img src="media/dem_01.jpg" alt="Светлая схема, общий план" loading="lazy"></button>
-            <button type="button"><img src="media/dem_02.jpg" alt="Светлая схема, крупный план" loading="lazy"></button>
             <button type="button"><img src="media/dem_04.jpg" alt="Тёмная схема, общий план" loading="lazy"></button>
             <button type="button"><img src="media/dem_05.jpg" alt="Тёмная схема, крупный план" loading="lazy"></button>
+            <button type="button"><img src="media/dem_01.jpg" alt="Светлая схема, общий план" loading="lazy"></button>
+            <button type="button"><img src="media/dem_02.jpg" alt="Светлая схема, крупный план" loading="lazy"></button>
           </div>
         </div>
       </article>
@@ -368,25 +369,34 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
       <article class="work">
         <div class="work-head">
           <span class="tag">Интервью · Экспертный блог</span>
-          <h3>Денис, HilltopAds</h3>
-          <p>Экспертный YouTube-канал международной рекламной сети: с 2025 года — более 50 роликов. Проект снимается на две камеры в формате 4K с телесуфлёром, звук записывается на профессиональное оборудование. Работа со спикером в кадре, помощь в подборе и выстраивании локаций под каждый выпуск, а также прямые трансляции на YouTube через OBS Studio. Плюс портретная фотосессия эксперта.</p>
-          <span class="credit"><b>Съёмка, свет, звук, трансляции, фото, часть выпусков — монтаж</b> · <a href="https://youtu.be/IusUBoWNYQU">Выпуск целиком</a></span>
+          <h3>HilltopAds</h3>
+          <p>Экспертный YouTube-канал международной рекламной сети: с 2024 года — более 50 роликов. Проект снимается на две камеры в формате 4K с телесуфлёром, звук записывается на профессиональное оборудование. Работа со спикером в кадре, помощь в подборе и выстраивании локаций под каждый выпуск, а также прямые трансляции на YouTube через OBS Studio.</p>
+          <span class="credit"><b>Съёмка, свет, звук, трансляции, часть выпусков — монтаж</b> · <a href="https://youtu.be/IusUBoWNYQU">Выпуск целиком</a></span>
         </div>
         <div class="media">
           <video class="player" src="media/denis.mp4" poster="media/den_08.jpg" controls playsinline preload="none"></video>
           <div class="stills h">
-            <button type="button"><img src="media/den_01.jpg" alt="Денис за столом, глобус и лампа" loading="lazy"></button>
-            <button type="button"><img src="media/den_02.jpg" alt="Денис за столом, средний план" loading="lazy"></button>
-            <button type="button"><img src="media/den_03.jpg" alt="Денис у бетонной стены, лампа и зебра" loading="lazy"></button>
+            <button type="button"><img src="media/den_01.jpg" alt="Спикер за столом, глобус и лампа" loading="lazy"></button>
+            <button type="button"><img src="media/den_02.jpg" alt="Спикер за столом, средний план" loading="lazy"></button>
+            <button type="button"><img src="media/den_03.jpg" alt="Спикер у бетонной стены, лампа и зебра" loading="lazy"></button>
             <button type="button"><img src="media/den_05.jpg" alt="Новогодний выпуск, библиотека и гирлянды" loading="lazy"></button>
             <button type="button"><img src="media/den_06.jpg" alt="Новогодний выпуск, средний план" loading="lazy"></button>
             <button type="button"><img src="media/den_07.jpg" alt="Стена с зеброй, общий план" loading="lazy"></button>
             <button type="button"><img src="media/den_08.jpg" alt="Стена с зеброй, крупный план" loading="lazy"></button>
           </div>
-          <div class="stills p">
-            <button type="button"><img src="media/denph_01.jpg" alt="Портрет: Денис с книгой в библиотеке" loading="lazy"></button>
-            <button type="button"><img src="media/denph_10.jpg" alt="Портрет: Денис в кресле среди книг" loading="lazy"></button>
-          </div>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="work-head">
+          <span class="tag">Прямая трансляция · Медицина</span>
+          <h3>Integrity, медицинский форум в Самаре</h3>
+          <p>Прямая трансляция медицинского форума: съёмка на две камеры, переключение планов в OBS Studio, звук — напрямую с пульта площадки. Эфир шёл через МТС Линк для участников онлайн.</p>
+          <span class="credit"><b>Трансляция, две камеры, звук</b></span>
+        </div>
+        <div class="nda">
+          <b>Кадров не будет — и это хорошо</b>
+          <p>Материалы форума закрыты соглашением о неразглашении (NDA). Ваши материалы я защищаю так же.</p>
         </div>
       </article>
         </div>
@@ -399,13 +409,12 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
             <div class="work-head">
               <span class="tag">Туризм · Reels</span>
               <h3>Fat Bus, туры по России и миру</h3>
-              <p>Вертикальные ролики для туристической компании Fat Bus (аудитория более 100 тысяч подписчиков). Съёмка велась на живой локации прямо во время туров — на побережье Шри-Ланки, в Териберке и в Грузии.</p>
+              <p>Вертикальные ролики для туристической компании Fat Bus (аудитория более 100 тысяч подписчиков). Съёмка велась на живой локации прямо во время туров — на побережье Шри-Ланки, в Териберке и в Грузии, плюс аэросъёмка с дрона.</p>
               <span class="credit"><b>Съёмка для аккаунта</b> · <a href="https://instagram.com/fat_bus">instagram.com/fat_bus</a></span>
             </div>
             <div class="trio">
-              <video class="player" src="media/fatbus_1.mp4" poster="media/fatbus_1.jpg" controls playsinline preload="none"></video>
-              <video class="player" src="media/fatbus_2.mp4" poster="media/fatbus_2.jpg" controls playsinline preload="none"></video>
               <video class="player" src="media/fatbus_3.mp4" poster="media/fatbus_3.jpg" controls playsinline preload="none"></video>
+              <video class="player" src="media/fatbus_1.mp4" poster="media/fatbus_1.jpg" controls playsinline preload="none"></video>
               <video class="player" src="media/fatbus_4.mp4" poster="media/fatbus_4.jpg" controls playsinline preload="none" aria-label="Грузия"></video>
             </div>
           </article>
@@ -423,11 +432,8 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
             <button type="button"><img src="media/dr_01.jpg" alt="Ворота базы с вывеской" loading="lazy"></button>
             <button type="button"><img src="media/dr_03.jpg" alt="Аллея вдоль озера" loading="lazy"></button>
             <button type="button"><img src="media/dr_04.jpg" alt="Деревянный домик в лесу" loading="lazy"></button>
-            <button type="button"><img src="media/dr_05.jpg" alt="Гостья на крыльце домика" loading="lazy"></button>
             <button type="button"><img src="media/dr_06.jpg" alt="Рыбак на берегу" loading="lazy"></button>
             <button type="button"><img src="media/dr_07.jpg" alt="Домики на берегу, вид с дрона" loading="lazy"></button>
-            <button type="button"><img src="media/dr_08.jpg" alt="Ребёнок на качелях у озера" loading="lazy"></button>
-            <button type="button"><img src="media/dr_09.jpg" alt="Сирень и бокал" loading="lazy"></button>
           </div>
         </div>
       </article>
@@ -448,15 +454,15 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
         </div>
         <div>
           <h3>Приеду к вам</h3>
-          <p>Снимаю в вашем зале, с вашей командой и гостями, а не в чужой студии. Самара, Тольятти и область, своя техника и свет.</p>
+          <p>Снимаю на ваших локациях, с вашей командой и гостями. По запросу подберу подходящую локацию или студию. Самара, Тольятти и область, своя техника, звук и свет.</p>
         </div>
         <div>
           <h3>Предоплата всего 25%</h3>
-          <p>Остальное — после того, как увидите готовые ролики. Цена известна заранее, без смет «по итогам».</p>
+          <p>Остальное — после того, как увидите готовые ролики. Стоимость называю после согласования сценария и раскадровки — смета фиксируется до съёмки. Если по ходу вы захотите что-то добавить (ещё локацию, актёров, лишний час), заранее скажу, сколько это стоит, и только с вашего согласия.</p>
         </div>
         <div>
-          <h3>Готово за 5 дней</h3>
-          <p>Рилсы сдаю быстрее, горизонтальные ролики — до 5 дней после съёмки. Два круга правок уже в цене.</p>
+          <h3>Готово от 5 дней</h3>
+          <p>Вертикальные ролики — от 5 дней после съёмки, горизонтальные могут занять больше времени в зависимости от хронометража. Два круга правок уже в цене.</p>
         </div>
       </div>
     </div>
@@ -473,11 +479,11 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
           <p class="sum">15 000 ₽</p>
           <details class="how"><summary>Как проходит работа</summary><ol>
             <li><b>Знакомство.</b> Короткий созвон или встреча: чем живёт бизнес, кто ваши клиенты, что хотите показать.</li>
-            <li><b>Идеи и сценарии.</b> Предлагаю 4 идеи роликов, согласуем.</li>
+            <li><b>Идеи и сценарии.</b> Предлагаю 4 идеи роликов, согласовываем.</li>
             <li><b>План съёмки.</b> Раскадровка: какие кадры, где и во сколько. Бесплатно и до оплаты — вы видите ролики ещё до съёмки.</li>
-            <li><b>Съёмка.</b> Один выезд на все 4 ролика, своя техника и свет.</li>
+            <li><b>Съёмка.</b> Один выезд на все 4 ролика, своя техника, звук и свет.</li>
             <li><b>Монтаж.</b> Монтаж, цвет, музыка, звук.</li>
-            <li><b>Правки и сдача.</b> Вношу правки, отдаю готовые файлы под соцсети.</li>
+            <li><b>Правки и сдача.</b> Два круга правок, отдаю готовые файлы под соцсети.</li>
           </ol></details>
         </div>
         <div class="price">
@@ -486,11 +492,11 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
           <p class="sum">25 000 ₽</p>
           <details class="how"><summary>Как проходит работа</summary><ol>
             <li><b>Знакомство.</b> Разбираемся в бизнесе, клиентах и том, что важно показать.</li>
-            <li><b>Контент-план.</b> 8 идей роликов на месяц: продукт, люди, процесс, закулисье. Согласуем.</li>
+            <li><b>Контент-план.</b> 8 идей роликов на месяц: продукт, люди, процесс, закулисье. Согласовываем.</li>
             <li><b>План съёмки.</b> Раскадровка на все ролики — бесплатно и до оплаты.</li>
-            <li><b>Съёмка.</b> Один или два выезда, как удобнее вам. Своя техника и свет.</li>
+            <li><b>Съёмка.</b> Один или два выезда, как удобнее вам. Своя техника, звук и свет.</li>
             <li><b>Монтаж.</b> Монтаж, цвет, музыка, звук.</li>
-            <li><b>Правки и сдача.</b> Вношу правки, отдаю ролики с подсказкой, в каком порядке выкладывать.</li>
+            <li><b>Правки и сдача.</b> Два круга правок, отдаю ролики с подсказкой, в каком порядке выкладывать.</li>
           </ol></details>
         </div>
         <div class="price">
@@ -510,8 +516,8 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
           <p class="what">Ролик о продукте, заведении или услуге для рекламы, сайта и соцсетей</p>
           <p class="sum">от 10 000 ₽</p>
           <details class="how"><summary>Как проходит работа</summary><ol>
-            <li><b>Бриф.</b> Задача ролика, продукт, аудитория, где будет показ.</li>
-            <li><b>Идея и сценарий.</b> Предлагаю идею, пишу сценарий, согласуем.</li>
+            <li><b>Бриф.</b> Задача ролика, продукт, аудитория. Согласовываем, на какой площадке будет публикация.</li>
+            <li><b>Идея и сценарий.</b> Предлагаю идею, пишу сценарий, согласовываем.</li>
             <li><b>Раскадровка и подготовка.</b> План кадров, локация, реквизит, люди в кадре.</li>
             <li><b>Съёмка.</b> Камера, свет, звук и всё необходимое под задачу.</li>
             <li><b>Постпродакшн.</b> Монтаж, цвет, звук, музыка, графика.</li>
@@ -534,7 +540,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top:
       <ul class="terms">
         <li><b>Раскадровка</b> вашего ролика <b>бесплатно</b></li>
         <li><b>Предоплата 25%</b>, остальное — после сдачи ролика</li>
-        <li><b>Сдача до 5 дней</b> после съёмки (в зависимости от объёма материала)</li>
+        <li><b>Сдача от 5 дней</b> после съёмки: вертикальные быстрее, горизонтальные — в зависимости от хронометража</li>
       </ul>
       <p class="note">Точная стоимость зависит от задачи. Напишите, какой ролик нужен, и я посчитаю.</p>
     </div>
